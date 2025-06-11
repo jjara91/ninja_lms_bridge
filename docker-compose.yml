@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  domain:
+    build:
+      context: ./domain
+      target: develop
+    volumes:
+      - ./domain:/app
+    tty: true
+    stdin_open: true
+    command: ["sh"]
