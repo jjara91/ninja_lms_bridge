@@ -3,12 +3,18 @@
   "autoload": {
     "psr-4": {
       "LMSBridge\\": "src/"
-    }
+    },
+    "exclude-from-classmap": [
+      "src/*/Infrastructure"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
       "Tests\\": "tests/"
     }
+  },
+  "require": {
+    "php": ">=8.4"
   },
   "require-dev": {
     "pestphp/pest": "^3.8"

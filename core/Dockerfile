@@ -8,14 +8,12 @@ RUN pecl install xdebug \
 RUN echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-USER www-data
-
 WORKDIR /app
 
-COPY composer.json composer.lock ./
+COPY . .
 
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-COPY . .
+USER www-data
 
 

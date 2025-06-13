@@ -1,12 +1,37 @@
 version: '3.8'
 
 services:
-  domain:
+  core:
     build:
-      context: ./domain
-      target: develop
+      context: ./core
     volumes:
-      - ./domain:/app
+      - ./core:/app
     tty: true
     stdin_open: true
     command: ["sh"]
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    ports:
+      - "80:8080"
+      - "443:8443"
+    environment:
+      SSL_MODE: "mixed"
+    volumes:
+      - ./apps/api:/var/www/html
+      - ./core:/var/www/core
+    depends_on:
+      - core
+
+  database:
+    image: postgres:17.5
+    environment:
+      - POSTGRES_USER=ninja_lms_bridge
+      - POSTGRES_PASSWORD=N1nj4LMS
+      - POSTGRES_DB=lmsbridge
+    ports:
+      - "5431:5432"
+    volumes:
+      - ./apps/api/var/postgresql-data@17:/var/lib/postgresql/data

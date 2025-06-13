@@ -1,0 +1,6 @@
+resources:
+    LMSBridge\Student\Domain\Student:
+        operations:
+            ApiPlatform\Metadata\GetCollection:
+                filters: ['student.search_filter']
+            ApiPlatform\Metadata\Get: ~
