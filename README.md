@@ -12,9 +12,6 @@ docker compose up -d
 # Ingresar al contenedor de la API
 docker exec -it api bash
 
-# Crear estructura de BBDD
-bin/console d:m:m
-
 # Ejecutar fixtures con data de ejemplo
 bin/console d:f:l
 ```

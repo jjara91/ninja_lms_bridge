@@ -19,4 +19,6 @@ RUN composer install --no-interaction --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html/var /var/www/html/public \
     && chmod -R 775 /var/www/html/var /var/www/html/public
 
+RUN bin/console d:m:m --no-interaction --all-or-nothing
+
 USER www-data
