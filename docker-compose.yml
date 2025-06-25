@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   core:
+    container_name: lms_core
     build:
       context: ./core
     volumes:
@@ -11,6 +12,7 @@ services:
     command: ["sh"]
 
   api:
+    container_name: lms_api
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
@@ -26,6 +28,7 @@ services:
       - core
 
   database:
+    container_name: lms_database
     image: postgres:17.5
     environment:
       - POSTGRES_USER=ninja_lms_bridge

@@ -9,7 +9,7 @@
         "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "api-platform/doctrine-orm": "*",
+        "api-platform/doctrine-orm": "^4.1",
         "api-platform/json-api": "^4.1",
         "api-platform/symfony": "^4.1",
         "doctrine/dbal": "^3",
